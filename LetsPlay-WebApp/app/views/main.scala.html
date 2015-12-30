@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Let's Play !</a>
+            <a class="navbar-brand" href="@routes.Application.index()">Let's Play !</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
@@ -40,8 +40,8 @@
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-                <button type="submit" class="btn btn-success">Sign up</button>
+                <a href="@routes.Auth.signin_show()" class="btn btn-success" role="button">Sign in</a>
+                <a href="@routes.Auth.signup_show()" class="btn btn-primary" role="button">Sign up</a>
             </form>
         </div><!--/.navbar-collapse -->
     </div>

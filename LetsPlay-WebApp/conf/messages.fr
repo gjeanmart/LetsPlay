@@ -1,0 +1,6 @@
+############################
+# MESSAGES
+# Language = rançais (fr)
+############################
+
+signup.title=S'inscrire
