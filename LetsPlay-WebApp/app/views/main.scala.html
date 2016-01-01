@@ -1,4 +1,4 @@
-@(content: Html)
+@(content: Html)(implicit messages: Messages,  l: Lang)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +53,18 @@
     <hr>
 
     <footer>
-        <p>&copy; 2015 Company, Inc.</p>
+        &copy; 2015 Company, Inc. &mdash;
+        @helper.form(action = routes.Application.changeLocale(), 'class -> "change-locale") {
+        <label>@Messages("languages")
+            <select name="locale">
+                @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
+                <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
+                }
+            </select>
+        </label>
+        }
     </footer>
+
 </div> <!-- /container -->
 
 <!-- Bootstrap core JavaScript
@@ -62,6 +72,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src='@routes.Assets.at("lib/jquery/jquery.js")' type="text/javascript"></script>
 <script src='@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")' type="text/javascript"></script>
+<script src='@routes.Assets.at("javascripts/hello.js")' type="text/javascript"></script>
 
 </body>
 </html>

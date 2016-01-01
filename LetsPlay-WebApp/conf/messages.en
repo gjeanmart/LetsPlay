@@ -11,16 +11,16 @@
 
 ### Footer
 # Locale
-lang.en=Anglais
-lang.fr=Français
+lang.en=English
+lang.fr=French
 
 
 ######################################
 # Index Page
 ######################################
-index.title=Bonjour
+index.title=Hello !
 
 ######################################
 # Sign Up Page
 ######################################
-signup.title=S'inscrire
+signup.title=Signup for a new account

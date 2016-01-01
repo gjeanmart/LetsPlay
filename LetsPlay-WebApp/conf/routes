@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index
+POST    /locale                     controllers.Application.changeLocale()
 
 # Authentication pages
 GET     /signin                     controllers.Auth.signin_show

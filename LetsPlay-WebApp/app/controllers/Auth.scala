@@ -16,7 +16,9 @@ import javax.inject.Inject
   * Controller for authentication
   * Created by Grégoire JEANMART on 2015-12-30.
   */
-class Auth @Inject()(val messagesApi: MessagesApi)  extends Controller with I18nSupport {
+class Auth @Inject()(val messagesApi: MessagesApi) extends Controller
+  with I18nSupport
+  with CookieLang{
 
 
   /**********************************
@@ -36,11 +38,11 @@ class Auth @Inject()(val messagesApi: MessagesApi)  extends Controller with I18n
   /**********************************
     * ACTION
     ***********************************/
-  def signin_show = Action {
+  def signin_show = Action { implicit request =>
     Ok(views.html.auth_signin("Hello"))
   }
 
-  def signup_show = Action {
+  def signup_show = Action { implicit request =>
     Ok(views.html.auth_signup("Hello"))
   }
 
