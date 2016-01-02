@@ -15,6 +15,8 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller
     * ACTION
     ***********************************/
   def index() = Action { implicit request =>
+    Logger.debug("ACTION = index()")
+
     Ok(views.html.index("Your new application is ready"))
   }
 }

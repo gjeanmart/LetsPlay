@@ -1,4 +1,22 @@
 This is your new Play application
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+Features :
+- Bootstrap webdesign [100%]
+
+- Internationalization [100%]
+> Management
+> All internationalization
+
+- Authentication [10%]
+> SignUp
+> SignIn
+> Account Management
+> Role (admin, user)
+> Reset password workflow
+
+- Administration [0%]
+> Private access
+> System Monitoring
+> Log Monitoring
+> Hot configuration

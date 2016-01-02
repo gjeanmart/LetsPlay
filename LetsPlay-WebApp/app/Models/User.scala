@@ -13,7 +13,7 @@ case class User(
   firstName   : String,
   lastName    : String) {
   def key = email
-  def fullName: String = firstName + " " + lastName
+  def fullName: String = firstName + " " + lastName.toUpperCase
 }
 
 object User {

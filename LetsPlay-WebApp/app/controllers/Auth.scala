@@ -1,6 +1,7 @@
 package controllers
 
 import Models.User
+import play.Logger
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.data.validation.Constraints._
@@ -39,29 +40,38 @@ class Auth @Inject()(val messagesApi: MessagesApi) extends Controller
     * ACTION
     ***********************************/
   def signin_show = Action { implicit request =>
-    Ok(views.html.auth_signin("Hello"))
+    Logger.debug("ACTION = signin_show()")
+
+    Ok(views.html.auth_signin(null))
   }
 
   def signup_show = Action { implicit request =>
-    Ok(views.html.auth_signup("Hello"))
+    Logger.debug("ACTION = signup_show()")
+
+    Ok(views.html.auth_signup(signUpForm))
   }
 
   def signup_register = Action { implicit request =>
+    Logger.debug("ACTION = signup_register()")
+
     signUpForm.bindFromRequest.fold(
-      formWithErrors => {
+      formKO => {
         // binding failure, you retrieve the form containing errors:
-        BadRequest(views.html.auth_signup("ERROR"))
+        BadRequest(views.html.auth_signup(formKO))
       },
-      userData => {
+      formOK => {
         val r = scala.util.Random
         val newUser = User(
           Option(r.nextLong()),
-          userData.username,
-          userData.email,
-          userData.password,
-          userData.firstName,
-          userData.lastName)
+          formOK.username,
+          formOK.email,
+          formOK.password,
+          formOK.firstName,
+          formOK.lastName)
         //val id = models.User.create(newUser)
+
+        Logger.debug(s"New user = $newUser")
+
         Redirect(routes.Auth.signin_show())
       }
     )
